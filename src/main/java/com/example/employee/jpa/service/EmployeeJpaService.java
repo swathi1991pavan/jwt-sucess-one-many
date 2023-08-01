@@ -33,7 +33,7 @@ public class EmployeeJpaService implements EmployeeRepository{
 	}
 
 	 @Override
-	 public Employee getEmployeeById(int employeeId) {
+	 public Employee getEmployeeById(Integer employeeId) {
 		 try {
 			 Employee employee = employeeJpaRepository.findById(employeeId).get();
 			 return employee;
@@ -46,7 +46,7 @@ public class EmployeeJpaService implements EmployeeRepository{
 	
 
 	@Override
-	public Employee updateEmployee(int employeeId, Employee employee) {
+	public Employee updateEmployee(Integer employeeId, Employee employee) {
 		try {
 			
 			Employee existingEmployee =employeeJpaRepository.findById(employeeId).get();
@@ -75,7 +75,7 @@ public class EmployeeJpaService implements EmployeeRepository{
 	}
 
 	@Override
-	public void deleteEmployee(int employeeId) {
+	public void deleteEmployee(Integer employeeId) {
 		try {
 			
 			Employee employee = getEmployeeById(employeeId);

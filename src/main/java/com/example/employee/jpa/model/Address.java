@@ -13,14 +13,14 @@ import jakarta.persistence.Table;
 public class Address {
 	@Id  
     @GeneratedValue(strategy=GenerationType.IDENTITY)  
-    private int addressId;    
+    private Integer addressId;    
 	
     
 	private String city;
 	
 	private String state; 
 	
-    private int pincode; 
+    private Integer pincode; 
     
     @OneToOne(cascade=CascadeType.ALL)  
     private Employee employee; 

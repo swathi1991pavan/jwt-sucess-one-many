@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.example.employee.jpa.dto.ResponseDto;
 
 public interface UserRepository {
-	ResponseDto getUser(int userId);
+	ResponseDto getUser(Integer userId);
 	
 	//ArrayList<ResponseDto> getUsers();
 }

@@ -40,7 +40,7 @@ public class DepartmentController {
 	
 	@GetMapping("{departmentId}")
 	@PreAuthorize("hasAuthority('ROLE_USER')")
-    public Department getDepartmentById(@PathVariable("departmentId") int departmentId){
+    public Department getDepartmentById(@PathVariable("departmentId") Integer departmentId){
 		return departmentService.getDepartmentById(departmentId);
     } 
 	
@@ -52,3 +52,35 @@ public class DepartmentController {
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+/*{
+"dname" : "ECE",
+"employees" : [
+    {
+        "employeeName": "Keerthi",
+        "email": "kk@gmail.com",
+        "age" : 28
+        
+       
+
+        
+    },
+    {
+        "employeeName": "Harsha",
+        "email": "hh@gmail.com",
+        "age" : 28
+        
+        
+    }
+]
+}*/

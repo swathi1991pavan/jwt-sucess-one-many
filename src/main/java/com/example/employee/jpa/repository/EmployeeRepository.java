@@ -11,11 +11,11 @@ public interface EmployeeRepository {
 	
 	Employee addEmployee(Employee employee);
 	
-	Employee getEmployeeById(int employeeId) ;
+	Employee getEmployeeById(Integer employeeId) ;
 	
-    Employee updateEmployee(int employeeId,Employee employee);
+    Employee updateEmployee(Integer employeeId,Employee employee);
 	
-	void deleteEmployee(int employeeId);
+	void deleteEmployee(Integer employeeId);
 	
 	
 

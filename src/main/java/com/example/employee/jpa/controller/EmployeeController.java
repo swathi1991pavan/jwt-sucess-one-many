@@ -39,7 +39,7 @@ public class EmployeeController {
 	
 	@GetMapping("{employeeId}")
 	@PreAuthorize("hasAuthority('ROLE_USER')")
-    public Employee getEmployeeById(@PathVariable("employeeId") int employeeId){
+    public Employee getEmployeeById(@PathVariable("employeeId") Integer employeeId){
 		return employeeService.getEmployeeById(employeeId);
     } 
 	
@@ -51,12 +51,12 @@ public class EmployeeController {
 	
 	@PutMapping("{employeeId}")
 	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
-	public Employee updateEmployee(@PathVariable("employeeId")  int employeeId , @RequestBody Employee employee) {
+	public Employee updateEmployee(@PathVariable("employeeId")  Integer employeeId , @RequestBody Employee employee) {
 		return employeeService.updateEmployee(employeeId, employee);
 	}
 	
 	@DeleteMapping("{employeeId}")
-	public void deleteEmployee(@PathVariable("employeeId") int employeeId) {
+	public void deleteEmployee(@PathVariable("employeeId")Integer employeeId) {
 		employeeService.deleteEmployee(employeeId);
 	}
 	

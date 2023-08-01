@@ -26,7 +26,7 @@ import com.example.employee.jpa.repository.UserRepository;
 		
         
         @Override
-		public ResponseDto getUser(int userId) {
+		public ResponseDto getUser(Integer userId) {
 			
         	ResponseDto responseDto = new ResponseDto();
         	//Employee employee = userRepository.findById(userId).get();
@@ -45,6 +45,9 @@ import com.example.employee.jpa.repository.UserRepository;
 
             return responseDto;
 		}
+
+
+		
 
 
 		/**@Override

@@ -22,7 +22,7 @@ public class UserController{
     public UserImpl userService ;	
 	
 @GetMapping("{id}")
-public ResponseEntity<ResponseDto> getUser(@PathVariable("id") int userId){
+public ResponseEntity<ResponseDto> getUser(@PathVariable("id") Integer userId){
     ResponseDto responseDto = userService.getUser(userId);
     return ResponseEntity.ok(responseDto);
 }

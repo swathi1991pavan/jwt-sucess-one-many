@@ -18,7 +18,7 @@ public class Department {
   
 	@Id   
 	@GeneratedValue(strategy=GenerationType.IDENTITY) 
-	private int id;    
+	private Integer id;    
 	private String dname;    
   
 	@OneToMany(cascade = CascadeType.ALL)  
@@ -26,12 +26,21 @@ public class Department {
 	private List<Employee> employees;  
 
 	public Department() { }
+	
+	
+	public Department(Integer id, String dname, List<Employee> employees) {
+		super();
+		this.id = id;
+		this.dname = dname;
+		this.employees = employees;
+	}
 
-	public int getId() {
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -17,7 +17,7 @@ public class UserInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	@Column (name="Id")
-	private int id;
+	private Integer id;
 	
 	@Column (name="Name" ,nullable=false, length=50)
 	@NotEmpty(message = "user name shouldn't be null")
@@ -38,7 +38,7 @@ public class UserInfo {
 	
 	public UserInfo() { }
 	
-	public UserInfo(int id,
+	public UserInfo(Integer id,
 			@NotEmpty(message = "user name shouldn't be null") @Size(min = 3, max = 50, message = "Size should be between 3 to 50") String name,
 			@Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}", message = "invalid email address") String email,
 			@NotEmpty(message = "shouldn't be null") @Size(min = 3, max = 50, message = "Size should be between 3 to 50") String password) {

@@ -36,7 +36,7 @@ public class DepartmentJpaService implements DepartmentRepository {
 	
 
 	@Override
-	public Department getDepartmentById(int departmentId) {
+	public Department getDepartmentById(Integer departmentId) {
 		try {
 			 Department department = departmentJpaRepository.findById(departmentId).get();
 			 return department;

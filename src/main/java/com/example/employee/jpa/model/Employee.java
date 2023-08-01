@@ -1,5 +1,9 @@
 package com.example.employee.jpa.model;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +13,8 @@ import jakarta.persistence.Id;
 
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
@@ -20,7 +26,7 @@ public class Employee {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name="EmployeeId")
-	private int employeeId;
+	private Integer employeeId;
 	
 	@Column (name="EmployeeName" ,nullable=false, length=50)
 	@NotEmpty(message = "user name shouldn't be null")
@@ -30,6 +36,15 @@ public class Employee {
 	@Column (name="Email" )
 	@Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}" , message = "invalid email address")
 	private String email;
+	
+	/*@Column (name="Age")
+	@NotEmpty(message = "user name shouldn't be null")
+	@Min(value = 18, message = "Age should not be less than 18")
+    @Max(value = 150, message = "Age should not be greater than 100")*/
+	private Integer age;
+	
+	/*@DateTimeFormat(pattern="dd/MM/yyyy")
+	private Date dateOfJoining;*/
 	
 	/*@Column (name="Department" , nullable=false, length=50)
 	@NotEmpty (message ="shouldn't be null")
@@ -44,18 +59,31 @@ public class Employee {
 
 	public Employee(){}
 	
-	public Employee(int employeeId, String employeeName, String email, String department) {
+	
+
+	
+
+
+	public Employee(Integer employeeId,
+			@NotEmpty(message = "user name shouldn't be null") @Size(min = 3, max = 50, message = "Size should be between 3 to 50") String employeeName,
+			@Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}", message = "invalid email address") String email,
+			@NotEmpty(message = "user name shouldn't be null") @Min(value = 18, message = "Age should not be less than 18") @Max(value = 150, message = "Age should not be greater than 100") Integer age,
+			Date dateOfJoining) {
+		super();
 		this.employeeId = employeeId;
 		this.employeeName = employeeName;
 		this.email = email;
-		//this.department = department;
+		this.age = age;
+		//this.dateOfJoining = dateOfJoining;
 	}
 
-	public int getEmployeeId() {
+
+
+	public Integer getEmployeeId() {
 		return employeeId;
 	}
 	
-	public void setEmployeeId(int employeeId) {
+	public void setEmployeeId(Integer employeeId) {
 		this.employeeId = employeeId;
 	}
 	
@@ -75,6 +103,28 @@ public class Employee {
 		this.email = email;
 	}
 	
+	public Integer getAge() {
+		return age;
+	}
+
+
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+}
+
+	/*public Date getDateOfJoining() {
+		return dateOfJoining;
+	}
+
+
+
+	public void setDateOfJoining(Date dateOfJoining) {
+		this.dateOfJoining = dateOfJoining;*/
+	
+
 	/*public String getDepartment() {
 		return department;
 	}
@@ -91,4 +141,3 @@ public class Employee {
 		this.address = address;
 	}*/
 
-}

@@ -11,5 +11,5 @@ public interface DepartmentRepository {
 	
 	Department addDepartment(Department department);
 	
-	Department getDepartmentById(int departmentId) ;
+	Department getDepartmentById(Integer departmentId) ;
 }
