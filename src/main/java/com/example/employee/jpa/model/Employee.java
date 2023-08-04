@@ -10,7 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
@@ -21,7 +21,7 @@ import jakarta.validation.constraints.Size;
 @Entity
 
 @Table(name = "employees")
-public class Employee {
+public class Employee extends AuditModel{
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,6 +37,12 @@ public class Employee {
 	@Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}" , message = "invalid email address")
 	private String email;
 	
+	@OneToOne(cascade=CascadeType.ALL)  
+    private Address address;
+	
+	
+
+
 	/*@Column (name="Age")
 	@NotEmpty(message = "user name shouldn't be null")
 	@Min(value = 18, message = "Age should not be less than 18")
@@ -61,21 +67,27 @@ public class Employee {
 	
 	
 
-	
+
+
+
 
 
 	public Employee(Integer employeeId,
 			@NotEmpty(message = "user name shouldn't be null") @Size(min = 3, max = 50, message = "Size should be between 3 to 50") String employeeName,
 			@Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}", message = "invalid email address") String email,
-			@NotEmpty(message = "user name shouldn't be null") @Min(value = 18, message = "Age should not be less than 18") @Max(value = 150, message = "Age should not be greater than 100") Integer age,
-			Date dateOfJoining) {
+			Address address, Integer age) {
 		super();
 		this.employeeId = employeeId;
 		this.employeeName = employeeName;
 		this.email = email;
+		this.address = address;
 		this.age = age;
-		//this.dateOfJoining = dateOfJoining;
 	}
+
+
+
+
+
 
 
 
@@ -112,6 +124,29 @@ public class Employee {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
+
+
+
+
+
+
+
+
+	public Address getAddress() {
+		return address;
+	}
+
+
+
+
+
+
+
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
 
 }
 

@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 
 @Entity  
 @Table(name="department_tbl")  
-public class Department {    
+public class Department extends AuditModel{    
   
 	@Id   
 	@GeneratedValue(strategy=GenerationType.IDENTITY) 
