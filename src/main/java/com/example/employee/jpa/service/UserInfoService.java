@@ -10,6 +10,8 @@ import com.example.employee.jpa.model.UserInfo;
 import com.example.employee.jpa.repository.EmployeeJpaRepository;
 import com.example.employee.jpa.repository.UserInfoJpaRepository;
 import com.example.employee.jpa.repository.UserInfoRepository;
+
+
 @Service
 public class UserInfoService implements UserInfoRepository{
 	
